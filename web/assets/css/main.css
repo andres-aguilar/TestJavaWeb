@@ -1,0 +1,13 @@
+/* 
+    Created on : 30/08/2018, 01:26:30 PM
+    Author     : Andres Aguilar
+*/
+:root {
+    --ligth: #f0f0f0;
+}
+
+html, body { box-sizing: border-box; }
+
+body {
+    background-color: var(--ligth);
+}
