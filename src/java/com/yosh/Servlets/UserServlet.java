@@ -1,11 +1,13 @@
 package com.yosh.Servlets;
 
 import com.yosh.Beans.User;
+import com.yosh.Models.UserAccounts;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,7 +32,21 @@ public class UserServlet extends HttpServlet {
         user.setUserName(request.getParameter("user"));
         user.setPassword(request.getParameter("pass"));
         
-        System.out.println(user.toString());
+        UserAccounts userAccount = new UserAccounts();
+        
+        if (userAccount.logIn(user)) {
+            user.setRole(1); // 1 = Admin
+            
+            // Generate session
+            HttpSession session = request.getSession(true);
+            session.setAttribute("user", user);
+            
+            response.sendRedirect("AdminPannel.jsp");
+        } else {
+            // response.sendRedirect("index.jsp");
+            request.setAttribute("error", true);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

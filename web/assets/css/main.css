@@ -2,12 +2,39 @@
     Created on : 30/08/2018, 01:26:30 PM
     Author     : Andres Aguilar
 */
+
 :root {
     --ligth: #f0f0f0;
+    --dark: #555555;
+    --red: #f44336;
+} 
+
+p { margin: 0 }
+
+.content {
+    height: 100vh;
+    width: 100wh
 }
 
-html, body { box-sizing: border-box; }
+form { padding-top: 5em }
+.user-image { margin-bottom: 2em }
+input { text-align: center }
 
-body {
-    background-color: var(--ligth);
+.btn-block {
+    width: 100%;
+    text-align: center;
+    margin-top: 2em
+}
+
+.notification {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.error {
+    background-color: var(--red);
+    color: var(--ligth);
+    padding: 5px;
 }

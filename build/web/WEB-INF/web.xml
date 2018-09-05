@@ -6,7 +6,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/UserServlet</url-pattern>
+        <url-pattern>/Authentication</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -10,7 +10,7 @@ public class User {
     private String name;
     private String lastName;
     private String address;
-    private int age;
+    private int age, role;
 
     
     @Override
@@ -106,5 +106,19 @@ public class User {
      */
     public void setAge(int age) {
         this.age = age;
+    }
+
+    /**
+     * @return the role
+     */
+    public int getRole() {
+        return role;
+    }
+
+    /**
+     * @param role the role to set
+     */
+    public void setRole(int role) {
+        this.role = role;
     }
 }
