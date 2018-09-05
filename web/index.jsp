@@ -4,7 +4,7 @@
     Author     : Andres Aguilar
     Email      : andresyoshimar@gmail.com
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.yosh.Beans.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
@@ -36,14 +36,14 @@
                     </div>
                     <input class="white-text" type="text" name="user" placeholder="Username" required>
                     <input class="white-text" type="password" name="pass" placeholder="Password" required>
-                    <button type="submit" class="waves-effect waves-light btn btn-block">
-                        Entrar
-                    </button>
+                    <button type="submit" class="waves-effect waves-light btn btn-block">Entrar</button>
                 </form>
             </div>
-            <% if(error) {%>
-            <div class="notification error"> ERROR: Username or Password not valid! </div>
-            <%}%>
+            
+            <c:if test="${error}">
+                <div class="notification error"> ERROR: Username or Password not valid! </div>
+            </c:if>
+            
         </div>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>

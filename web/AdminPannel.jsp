@@ -8,10 +8,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     String contextPath = request.getContextPath(); 
-    User user = session != null ? (User)session.getAttribute("user") : null;
+    User user = (User)session.getAttribute("user");
+    
     if (user == null) {
         response.sendRedirect("index.jsp");
+        user = new User();  // Para que no mande NullPointerException
     }
+    
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +28,7 @@
         <title>JavaWeb - Admin</title>
     </head>
     <body>
-        <p>Acceso correcto  <%= user.getUserName() %></p>
+        <p>Acceso correcto <%= user.getUserName() %></p>
         <a class="btn" href="logout.jsp"> Salir </a>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
